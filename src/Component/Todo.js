@@ -24,6 +24,19 @@ const Todo = () => {
     const deleteAll=()=>{
         setItem([]);
     }
+    const editItems=(index)=>{
+       let nm= item.find((e,id)=>{
+            if(id===index)
+            {
+                SetTxt(e);
+                item.splice(id,1);
+            }
+        })
+        setItem((oldval)=>{
+            return [...oldval];
+        })
+       
+    }
     return (
         <div className='main-div-todo'>
 
@@ -38,6 +51,7 @@ const Todo = () => {
                             return(
                             <>
                              <button onClick={()=>deleteItems(index)}>click me</button>
+                             <button onClick={()=>editItems(index)}>edit me</button>
                              <li key={index}>{eve}</li>
                             </>
                         )})
